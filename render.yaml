@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: api_caps
+    env: python
+    region: oregon
+    plan: free
+    pythonVersion: 3.10.14
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn core.asgi:application -k uvicorn.workers.UvicornWorker"
+    autoDeploy: true
